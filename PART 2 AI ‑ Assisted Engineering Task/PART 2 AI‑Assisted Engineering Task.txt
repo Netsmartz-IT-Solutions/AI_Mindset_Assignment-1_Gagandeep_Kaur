@@ -1,0 +1,62 @@
+PART 2: AI-Assisted Engineering Task
+
+Tech Stack:
+- Language: JavaScript
+- Framework: Node.js + Express
+
+Overview:
+I implemented a simple REST API for a Task Management service with clean separation of concerns. The solution focuses on clarity and maintainability rather than full production readiness.
+
+Implemented APIs:
+
+1. POST /tasks
+   Create a new task
+
+2. PATCH /tasks/:id/status
+   Update the status of an existing task
+
+3. GET /tasks/user/:userId
+   Fetch all tasks for a given user
+
+Validation:
+- title is required while creating a task
+- userId is required while creating a task
+- status must be one of: pending, in-progress, completed
+
+Clean Structure:
+
+src/
+  app.js
+  server.js
+  routes/
+    task.routes.js
+  controllers/
+    task.controller.js
+  services/
+    task.service.js
+  validators/
+    task.validator.js
+  data/
+    task.store.js
+
+Flow:
+- Routes handle endpoint mapping
+- Controllers handle request/response
+- Services contain business logic
+- Validators handle input validation
+- Store keeps in-memory mock data
+
+Design Notes:
+- I used an in-memory store to keep the implementation simple
+- I separated validation, controller logic, and business logic for clarity
+- The API includes basic error handling and meaningful validation responses
+- This is not production-ready, but it is structured so it can be extended easily
+
+Where AI helped most:
+AI helped most in accelerating the initial draft of the API design, especially for endpoint structure, request/response flow, and validation cases. It also helped generate a quick baseline implementation, which I then refined to better match a clean layered structure.
+
+One example where I corrected or rejected AI output:
+AI initially suggested a shortcut-based implementation where route handlers directly contained most of the logic. I rejected that approach and introduced a controller-service-validator separation so the code would be cleaner, easier to review, and more maintainable. I also refined validation rules and improved error responses instead of using the generic version suggested by AI.
+
+Overall:
+AI helped me move faster during scaffolding and brainstorming, but I reviewed and adjusted the output to improve clarity, structure, and alignment with the assignment requirements.
