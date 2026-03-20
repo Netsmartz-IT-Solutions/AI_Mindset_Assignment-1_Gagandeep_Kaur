@@ -1,0 +1,74 @@
+PART 6: Reflection
+
+1. Which parts of your current workflow slow down the most without AI?
+
+The parts that slow me down the most without AI are usually the ones where the problem is not fully clear at the start.
+
+These include:
+- understanding legacy or unfamiliar code
+- getting to a solid first draft of API design
+- identifying edge cases early
+- debugging issues where the root cause is not obvious
+- writing tests and documentation from scratch
+
+Example:
+If I open an existing notification module and the logic is spread across routes, services, queue handlers, and utility files, it takes time to understand the full flow manually. Without AI, I would need to trace file by file and build the mental model slowly. With AI, I can quickly ask for a summary of the flow, key dependencies, and risky areas, and then verify it myself. That reduces the time needed for the first-pass understanding.
+
+Another example (shorter):
+While designing a simple Task API, without AI I might spend more time deciding the initial structure and validations. With AI, I can get a first draft, then refine it based on my own judgment.
+
+So overall, without AI, I slow down most in the “figuring out the shape of the problem” phase, not necessarily in the actual coding phase.
+
+--------------------------------------------------
+
+2. What is one risk of over-reliance on AI that you actively watch for?
+
+One major risk is trusting AI output too quickly just because it sounds confident or looks clean.
+
+AI can produce code or explanations that look correct on the surface, but may be based on:
+- wrong assumptions
+- incomplete context
+- generic patterns that do not fit the actual system
+
+Example:
+Suppose AI suggests this logic while fetching user tasks:
+```
+if (!userId) return []
+```
+
+At first glance, that looks fine. But if the system allows userId = 0 as a valid value, that broad falsy check would incorrectly reject a valid case. This is the kind of issue that can be missed if AI output is accepted without thinking through the actual system behavior.
+
+Another example:
+AI may suggest updating task status directly in a route handler because it is faster to draft. But if the project expects controller-service separation, using that output directly would make the code inconsistent and harder to maintain.
+
+That is why I actively watch for:
+- overconfident explanations
+- non-existent references
+- skipped edge cases
+- logic that looks neat but does not match real business rules
+
+My rule is simple:
+AI can accelerate drafting and review, but it does not replace validation, testing, or engineering judgment.
+
+--------------------------------------------------
+
+3. On a scale of 1–5, how AI-dependent are you today? Why?
+
+I would rate myself 4 out of 5 for my current role and workload.
+
+I use AI regularly because it adds real value in my workflow, especially in:
+- understanding legacy code faster
+- drafting API structure
+- generating test ideas
+- spotting edge cases
+- improving readability and documentation
+
+Example:
+If I have to implement a new backend feature in an existing project, I usually understand the requirement first on my own, then use AI to validate my approach, ask for missing edge cases, and generate a first draft. That saves time and gives me a stronger starting point.
+
+At the same time, I do not consider myself fully dependent because I can still work without AI when needed.
+
+Example:
+If AI is not available, I can still design the API, debug code, and implement the solution manually. It will just take longer because I will be doing all the exploration, comparison, and first-draft thinking myself.
+
+So I would say I am strongly AI-assisted, but not blindly AI-dependent. AI improves my speed and breadth of review, but final ownership of correctness still stays with me.
