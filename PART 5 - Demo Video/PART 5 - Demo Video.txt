@@ -1,0 +1,28 @@
+PART 5: Demo Video (Mandatory – 10 to 15 Minutes)
+Record a Screen‑Share Video Covering:
+How you approached the task
+Where AI was used first
+One AI output you changed or rejected
+How AI improved speed or quality
+What you would improve next time
+✅ This is a key signal of AI‑first thinking.
+
+Demo Script
+
+Hi, this is my demo for the AI-assisted engineering task.
+
+I built a simple Task Management REST API with three main endpoints: create a task, update task status, and fetch tasks by user.
+
+I started by understanding the requirement on my own and reducing it into a small, clear scope. Since the task was more about clarity than completeness, I kept the solution simple and used Node.js, Express, and in-memory storage.
+
+I used AI right after that initial understanding. At that point, I already knew the main APIs I needed, so I used AI to validate the structure, suggest cleaner organization, and point out edge cases I might miss. So AI came in early, but not blindly. I first made sure I had my own baseline understanding.
+
+In the project structure, I separated the code into routes, controllers, services, and validators. Initially, AI suggested a more shortcut-based structure, where too much logic was kept inside the routes. I did not go with that directly. Instead, I introduced a cleaner controller-service split and then used AI to help build within that structure.
+
+AI helped me most in speeding up the first draft and surfacing edge cases. It also improved quality by helping me think through things like status validation and clearer error responses a bit faster.
+
+If I had more time, I would add tests, persistent storage, and centralized error handling.
+
+Overall, AI helped me move faster, but I still took ownership of reviewing, refining, and validating the final solution.
+
+“Basically, I used AI to speed up the draft, but I still made the final engineering decisions myself.”
