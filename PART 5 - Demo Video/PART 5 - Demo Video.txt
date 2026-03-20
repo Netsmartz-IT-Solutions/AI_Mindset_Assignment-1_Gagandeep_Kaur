@@ -26,3 +26,5 @@ If I had more time, I would add tests, persistent storage, and centralized error
 Overall, AI helped me move faster, but I still took ownership of reviewing, refining, and validating the final solution.
 
 “Basically, I used AI to speed up the draft, but I still made the final engineering decisions myself.”
+
+Here is my demo link: https://screenrec.com/share/yk5WmAP23w
