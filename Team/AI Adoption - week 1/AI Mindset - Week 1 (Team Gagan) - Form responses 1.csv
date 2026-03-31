@@ -1,0 +1,63 @@
+Timestamp,Name,Employee Code,Role,  What is your most frequent task?  ,  Approx time spent  ,Manual Time,AI Time,  Do you use AI for this?  ,  Where do you face difficulty?   ,What is your second most frequent task? ,  Time spent  ,  AI usage  ,Friction,What is your third most frequent task? ,  Time spent  ,  AI usage  ,Friction,  Which AI tools do you currently use?   ,  What stops you from using AI more?   ,   Have you seen any benefit from AI?  ,"   If yes, where did AI help most?  ", Which task do you think AI can improve the most?  ,  Are you willing to try 1 AI-assisted task this week?  
+25/03/2026 23:53:20,Amit Dadwal,NTZ2487,Senior Software Engineer (React JS),"My most frequent task involves building and implementing UI designs using React, translating design specifications (e.g., from Figma) into responsive and reusable components. This includes ensuring consistency in design, handling user interactions, and integrating APIs to make the UI functional.",2–4 hours/day," 20% (2 Hours daily)
+Manual Wokr:
+final implementation
+aligning with Figma
+testing
+fixing edge cases
+backend coordination
+business logic validation
+architecture decisions
+code reviews","80%  (6 Hours Daily)
+AI helps in:
+UI component scaffolding
+API integration patterns
+debugging
+refactoring
+helper functions
+professional communication
+logic suggestions",Yes,"I sometimes face difficulty in handling complex UI requirements and edge cases, especially when dealing with dynamic data and multiple integrations. However, AI tools help significantly by assisting with solution approaches, debugging, and improving implementation efficiency.","My second most frequent task is integrating APIs into the UI I build, ensuring seamless data flow between the frontend and backend. This includes handling API responses, managing state, implementing error handling, and ensuring a smooth user experience.",2–4 hours/day,Yes,"Friction mainly occurs when dealing with inconsistent or unclear API responses, handling edge cases, and coordinating with backend teams for changes or fixes. It can also take time to manage error handling and ensure proper data mapping for the UI. However, AI helps in this process by increasing development speed, assisting in debugging, and suggesting efficient approaches to handle integrations.","My third most frequent task involves building application logic and structuring the frontend architecture. This includes creating reusable helper functions, organizing code for scalability, and designing efficient data flow and component structure to ensure maintainability and performance.",2–4 hours/day,Yes,"Friction in this area mainly comes from designing scalable and maintainable architecture, handling complex business logic, and ensuring code reusability across different parts of the application. It can also be challenging to choose the best approach among multiple possible solutions. However, AI helps by suggesting optimal patterns, improving code structure, and assisting in faster debugging and implementation, which enhances overall development efficiency.","GitHub Copilot, ChatGPT, Antigravity, Deep Seek, Claude",Trust issues (wrong answers),Yes (significant),"Yes, I have seen significant benefits from AI in my daily work. AI helps the most in UI development, API integration, and logic building. While building UI, it assists in generating reusable components and improving design implementation. During API integration, it helps with faster debugging, handling edge cases, and suggesting efficient data handling approaches. For logic building and frontend architecture, AI provides guidance on better patterns, code structure, and reusable solutions, which improves overall development speed and code quality.","I believe AI can improve logic building and frontend architecture the most, as it involves complex decision-making, choosing optimal patterns, and ensuring scalability. AI can help by suggesting better design patterns, reusable structures, and efficient approaches, which can significantly reduce development time and improve code quality.",Yes
+26/03/2026 16:19:20,Akshat Mishra,NTZ2329,Senior Software Engineer,Complete module transformation from simple feedback form to comprehensive campaign management system,4 hours/day,"(30% of Execution) - 
+System Architecture: Designing the Component Hierarchy, managing complex Global State (Redux/Zustand), optimizing Render Performance, and ensuring Accessibility (ARIA) standards that AI often misses.
+Security & Compliance: Auditing AI-generated code for vulnerabilities (like SQL injection) and ensuring data privacy (GDPR/HIPAA) compliance.
+Business Logic Validation: Ensuring the code actually solves the user's problem, not just the compiler's problem.
+Code Review & Mentorship: Ensuring the team's code is maintainable and adheres to long-term tribal knowledge that isn't in the training data.
+Complex Debugging: Solving ""Heisenbugs"" or performance bottlenecks that span multiple systems and infrastructure layers.","(70% of Execution)
+My role here is prompting, reviewing, and refining.
+Boilerplate & Scaffolding: Generating functional components, writing Tailwind/CSS modules, creating custom hooks for basic state (e.g., useLocalStorage), and transforming Figma-to-Code snippets.
+Refactoring & Modernization: Converting legacy code to modern syntax or migrating between frameworks (e.g., Express to NestJS).
+Documentation: Generating JSDoc, READMEs, and technical explanations of complex functions.
+Test Data & Mocking: Creating realistic JSON mock data or spinning up Docker Compose files for local environments.
+Bug Localization: Pasting error logs into the chat to identify the likely ""smoking gun"" in the codebase.",Yes,"Complex state management across multiple campaign properties
+QR code generation and URL routing architecture
+Coordinating campaign metrics with sentiment analysis
+Managing campaign lifecycle (Active, Past, Scheduled states)",Architectural shift from modal-based tabs to three-phase workflow,4 hours/day,Yes,"Maintaining consistent UI/UX patterns across GuestConnect and Schedule modules
+Complex multi-step form state management
+PDF review component with three different document types
+Mobile-responsive stepper design
+Phase transition logic and data persistence",Updated API structure with separate endpoints for each request type,4 hours/day,Yes,"Separate endpoints for availability, time-off, cover, pickup, and trade requests
+Boolean payload structure for approval/denial
+Updated TypeScript interfaces (changed from '0'/'1' to boolean)
+Mandatory field enforcement (note and day for availability)","GitHub Copilot, ChatGPT, Claude","Data/privacy concerns, Not really, I use AI as much as possible",Yes (significant),"TypeScript First: Creating comprehensive interfaces before implementation
+Component Organization: Following established project patterns
+API Layer Separation: Clean service layer abstractions
+Styling Consistency: Matching existing design language (Mabel blue, card layouts)
+Documentation: Creating summaries and guides for future reference","Creating New Feature Modules with Consistent Patterns - Rapid scaffolding of 10-20 interconnected components Ensures consistency with existing patterns (GuestConnect, Onboarding, Schedule) Handles TypeScript interfaces, API services, and styling simultaneously Prevents architectural drift",Maybe
+30/03/2026 17:10:23,Nitanshi Agarwal,NTZ2279,Associate Software Engineer,"In my day-to-day work as a frontend developer, I handle complex forms that involve role-based fields, conditional validations, and dynamic data binding. I take assistance in generating optimized form structures, validation logic, and improving code modularity.",2–4 hours/day,"20% | 2 Hours Daily
+Finalizing implementation and polishing code
+Ensuring UI matches design specifications (Figma)
+Performing testing and handling edge scenarios
+Coordinating with backend team for data and API clarity
+Validating business requirements and logic
+Making decisions on application structure and flow
+Reviewing code and maintaining quality standards","80% | 6 Hours Daily
+Generating initial UI layouts and component structures
+Assisting with API integration logic and response handling
+Helping in debugging issues and analyzing errors
+Improving existing code through refactoring and cleanup
+Creating utility functions for reusable logic
+Supporting in drafting formal communication and documentation
+Suggesting different implementation approaches for better solutions",Yes,"I work on forms that involve dynamic fields, role-based logic, and conditional validations. Handling multiple FormControls, dynamic validators, and ensuring correct patching of data in edit/view mode can become complex and error-prone.","During development, I take support in analyzing and resolving issues related to API integration, data binding, and UI behavior. This helps in quickly identifying root causes and implementing accurate fixes.",2–4 hours/day,Yes,"Sometimes, I face issues in properly mapping API responses to UI components, especially when dealing with nested data structures or multiple dependent API calls. Ensuring correct timing (async handling) and avoiding data mismatch in dropdowns or forms is challenging.","I actively work on improving UI responsiveness and ensuring a consistent user experience across devices using Angular Material and Tailwind CSS. I take assistance in optimizing layouts, fixing alignment issues, and enhancing component structure.",2–4 hours/day,Yes,"Identifying the root cause of issues like data not reflecting in UI, incorrect bindings, or lifecycle-related problems (e.g., data not loading at the right time) can take time, especially in larger components.Ensuring consistent responsiveness across all screen sizes using Angular Material and Tailwind CSS is sometimes difficult, particularly for data-heavy components like tables, dashboards, and reports.","GitHub Copilot, ChatGPT, Deep Seek, Claude, Lovable AI, Cursor AI",Data/privacy concerns,Yes (significant),"It has helped me primarily in improving development speed, debugging efficiency, and overall code quality. I am able to generate a strong initial code structure for Angular components, forms, and validations much faster, which reduces repetitive effort.
+
+It also supports me in debugging by breaking down errors, identifying root causes, and suggesting possible fixes, making issue resolution quicker and less time-consuming. 
+Overall, it allows me to focus more on core frontend areas like UI/UX improvements, performance optimization, and writing clean, maintainable code while also accelerating my learning when working with new concepts or features.","Handling complex reactive forms and API-driven UI logic can be improved the most. Managing dynamic fields, validations, and data binding is time-consuming and error-prone, and assistance helps streamline this process, reduce bugs, and improve overall code efficiency.",Yes
