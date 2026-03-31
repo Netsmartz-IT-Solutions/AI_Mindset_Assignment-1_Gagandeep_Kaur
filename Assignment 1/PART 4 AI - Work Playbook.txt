@@ -1,0 +1,270 @@
+PART 4: AI Work Playbook
+
+Personal AI Engineering Playbook
+
+Overview:
+I use AI as a practical engineering assistant to speed up understanding, drafting, reviewing, and improving technical work. I do not use it as a source of truth. My approach is to combine my own understanding of the codebase and requirements with AI-assisted thinking, then validate everything before using it.
+
+--------------------------------------------------
+1) Where I Use AI
+--------------------------------------------------
+
+1. Understanding legacy code
+I use AI when I need to quickly understand old or unfamiliar code, especially when the flow is spread across multiple files.
+
+How I use it:
+- Summarize what a module does
+- Trace request/response flow
+- Identify likely dependencies
+- Ask for a plain-English explanation of complex logic
+
+Example:
+If I open an old notification service with controller, service, queue handler, and template logic spread across multiple files, I use AI to summarize:
+- where notification creation starts
+- how it is processed
+- where retries or failures are handled
+
+Why it helps:
+It reduces the time needed to build a mental model of legacy code.
+
+2. Designing APIs
+I use AI to brainstorm API structure, request/response shape, validation rules, and edge cases.
+
+How I use it:
+- Suggest endpoint naming
+- Compare REST options
+- Draft request/response examples
+- Identify missing validations or business scenarios
+
+Example:
+While designing a task management API, I may ask AI to suggest:
+- endpoint names for create/update/fetch operations
+- possible validation rules
+- error response format
+
+Why it helps:
+It gives me a faster first draft, which I then refine based on the actual requirement.
+
+3. Refactoring
+I use AI to improve readability, simplify large functions, and separate responsibilities better.
+
+How I use it:
+- Suggest smaller function breakdowns
+- Improve naming
+- Remove duplicate logic
+- Propose cleaner structure
+
+Example:
+If a controller contains validation, database calls, and response formatting all in one place, I may ask AI how to split it into validator, service, and controller layers.
+
+Why it helps:
+It gives me options for making code cleaner without changing functionality.
+
+4. Debugging
+I use AI as a second reviewer when I suspect a bug, edge case, or hidden inefficiency.
+
+How I use it:
+- Ask what could go wrong in a function
+- Identify hidden conditions or null issues
+- Suggest cleaner logic
+- Point out repeated work or weak error handling
+
+Example:
+If a function fails for empty arrays or rejects valid values like userId = 0 because of a broad falsy check, AI can help highlight that quickly.
+
+Why it helps:
+It often catches edge cases I may not notice immediately while focusing on the main bug.
+
+5. Writing tests
+I use AI to generate a first list of test cases and identify gaps in coverage.
+
+How I use it:
+- Suggest happy path, failure, and edge cases
+- Draft test descriptions
+- Help build input/output scenarios
+
+Example:
+For a task status update API, I may ask AI for test cases covering:
+- valid status update
+- task not found
+- invalid status
+- empty body
+- missing task id
+
+Why it helps:
+It speeds up test thinking and helps avoid missing obvious negative cases.
+
+6. Documentation
+I use AI to draft technical documentation, API usage notes, and code summaries.
+
+How I use it:
+- Convert code flow into readable explanations
+- Draft README sections
+- Summarize endpoint behavior
+- Write setup instructions
+
+Example:
+After building a small REST API, I may use AI to create a clean README with:
+- project overview
+- API list
+- sample requests
+- how to run locally
+
+Why it helps:
+It improves clarity and saves time on writing.
+
+--------------------------------------------------
+2) Prompt Patterns I Reuse
+--------------------------------------------------
+
+Tip: Include constraints like tech stack, existing architecture, performance limits, and required conventions.
+
+Prompt Pattern 1: Understand legacy code
+"Explain this module in simple terms. Describe the request flow, key dependencies, hidden assumptions, and likely edge cases. Also mention anything risky or tightly coupled."
+
+Example:
+I use this when opening an unfamiliar service file in an existing codebase.
+
+Prompt Pattern 2: API design and validation
+"I need to build a REST API for [feature]. Suggest a clean structure with routes, controller/service separation, validation rules, sample request/response bodies, and edge cases. Keep it simple and readable."
+
+Example:
+I use this when starting a new backend feature with limited time.
+
+Prompt Pattern 3: Debugging and improvement
+"Review this function for bugs, edge cases, readability issues, and performance concerns. Suggest an improved version and explain why each change is needed."
+
+Example:
+I use this when a function behaves unexpectedly or looks messy.
+
+Prompt Pattern 4: Test case generation
+"Generate practical test cases for this function/API. Include happy path, invalid input, edge cases, and failure scenarios."
+
+Example:
+I use this before writing unit or API tests.
+
+Prompt Pattern 5: Refactoring support
+"Refactor this code for readability and separation of concerns without changing behavior. Explain what should stay the same and what should improve."
+
+Example:
+I use this when cleaning up large or mixed-responsibility code.
+
+--------------------------------------------------
+3) Quality & Safety Checks
+--------------------------------------------------
+
+How I validate AI-generated code:
+- Check whether it actually solves the requirement
+- Compare it with existing project structure and coding patterns
+- Verify that referenced files, functions, and services really exist
+- Review logic for edge cases, null handling, and failure scenarios
+- Run lint, type checks, and local testing
+- Confirm no unexpected side effects on existing functionality
+
+Example:
+If AI suggests updating task status directly in the route handler, I validate whether that fits the project style. If the project follows controller-service separation, I refactor it before using it.
+
+How I prevent unsafe or incorrect usage:
+- I do not blindly trust AI output
+- I avoid giving sensitive data such as production secrets, private keys, or customer data
+- I avoid using AI decisions directly for security-critical logic, migrations, or destructive operations without manual review
+- I keep AI-generated changes small and reviewable
+- I validate assumptions using actual codebase context, not only the AI explanation
+
+Example:
+If AI suggests a DB migration or a query that updates all records, I do not use it directly. I first verify constraints, affected rows, rollback impact, and whether the change matches the actual business need.
+
+My rule:
+AI can draft, suggest, and accelerate. Final correctness must still come from my review, testing, and understanding of the system.
+
+Quick validation checklist:
+- Requirements match the change
+- Touchpoints align with project structure
+- Edge cases and error handling covered
+- Tests or manual checks performed
+- No unintended side effects
+
+--------------------------------------------------
+4) When I Avoid AI
+--------------------------------------------------
+
+- Security-critical logic without a manual review plan
+- Destructive operations or data migrations without safeguards
+- Legal, compliance, or privacy-sensitive decisions
+- Production data or secrets in prompts
+
+--------------------------------------------------
+5) Time Impact
+--------------------------------------------------
+
+Approximate comparison: With AI vs Without AI (varies by complexity and familiarity)
+
+1. Understanding legacy code
+Without AI:
+45–60 minutes to build an initial mental model
+
+With AI:
+20–30 minutes for a faster first-pass understanding
+
+Example:
+A service spread across 4–5 files becomes easier to understand when AI summarizes the flow and dependencies early.
+
+2. Designing a simple API
+Without AI:
+30–45 minutes for initial structure and validation planning
+
+With AI:
+15–25 minutes for a usable first draft
+
+Example:
+AI can quickly suggest endpoint structure, validation rules, and sample payloads, which I then refine.
+
+3. Refactoring and cleanup
+Without AI:
+30–60 minutes depending on code size
+
+With AI:
+15–35 minutes with faster options for restructuring and naming
+
+Example:
+Instead of manually exploring multiple refactor patterns, I can compare AI-generated options and pick the best one.
+
+4. Debugging
+Without AI:
+Time varies a lot; can take longer if edge cases are hidden
+
+With AI:
+Often 20–40% faster in early bug analysis
+
+Example:
+AI may quickly surface a boundary case or repeated computation that I may not notice in the first pass.
+
+5. Writing tests or documentation
+Without AI:
+20–40 minutes
+
+With AI:
+10–20 minutes for the first draft
+
+Example:
+AI helps generate a test checklist or README structure quickly, which I then clean up.
+
+Overall impact:
+AI usually gives me the biggest benefit in:
+- first-pass understanding
+- drafting structure
+- surfacing edge cases
+- reducing blank-page time
+
+It does not remove the need for engineering judgment, but it significantly reduces the time spent getting to a solid first version.
+
+--------------------------------------------------
+Conclusion
+--------------------------------------------------
+
+My AI playbook is simple:
+- First understand the requirement or code myself
+- Then use AI to accelerate thinking, drafting, and review
+- Finally validate everything through logic, project context, and testing
+
+I get the most value from AI when I use it as a thinking partner and productivity multiplier, while keeping final ownership of correctness, safety, and maintainability with myself.

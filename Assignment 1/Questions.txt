@@ -1,0 +1,73 @@
+PART 1: AI‑First Thinking (20 Minutes)
+Scenario
+You are assigned a new backend feature in an existing codebase with:
+Partial requirements
+Legacy code
+Tight deadline
+Questions (Answer in writing)
+1. At what exact point would you involve AI first, and why?
+2. Which parts of this work would you avoid giving to AI initially? Why?
+3. How do you validate AI‑generated code or suggestions before using them?
+4. What are early signs that AI output is incorrect or misleading?
+✅ We are assessing mindset, not language quality.
+PART 2: AI‑Assisted Engineering Task (40 Minutes)
+Task
+Design and implement a simple REST API for a Task Management service with:
+Create a task
+Update task status
+Fetch tasks by user
+Basic validation
+Clean structure (no need for full production readiness)
+You may choose:
+Any language
+Any framework
+Requirements
+Use AI actively
+Modify and refine AI output
+Prioritize clarity over completeness
+Submission
+Code (GitHub repo / ZIP / Gist)
+Short note explaining:
+Where AI helped most
+One example where you corrected or rejected AI output
+PART 3: AI‑Assisted Debugging & Improvement (25 Minutes)
+Task
+You will be given a buggy or inefficient function.
+Using AI:
+Identify issues (bugs, edge cases, inefficiencies)
+Improve readability or performance
+Explain why changes were made
+Mandatory Question
+How did AI help you see something you might have missed manually?
+PART 4: AI Work Playbook (20 Minutes)
+Create a 1–2 Page Personal AI Engineering Playbook
+Include:
+1️⃣ Where I Use AI
+Examples:
+Understanding legacy code
+Designing APIs
+Refactoring
+Debugging
+Writing tests
+Documentation
+2️⃣ Prompt Patterns I Reuse
+Provide at least 3 reusable prompt examples.
+3️⃣ Quality & Safety Checks
+How you validate AI code
+How you prevent unsafe or incorrect usage
+4️⃣ Time Impact
+Approximate comparison: With AI vs Without AI
+PART 5: Demo Video (Mandatory – 10 to 15 Minutes)
+Record a Screen‑Share Video Covering:
+How you approached the task
+Where AI was used first
+One AI output you changed or rejected
+How AI improved speed or quality
+What you would improve next time
+✅ This is a key signal of AI‑first thinking.
+PART 6: Reflection (10 Minutes)
+Answer honestly:
+Which parts of your current workflow slow down the most without AI?
+What is one risk of over‑reliance on AI that you actively watch for?
+On a scale of 1–5, how AI‑dependent are you today? Why?
+ 

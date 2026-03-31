@@ -1,0 +1,73 @@
+PART 3: AI-Assisted Debugging & Improvement
+
+Approach:
+I first read the function myself to understand what it was trying to do, what inputs it expected, and where the logic could fail. Before changing anything, I traced the flow with a few sample inputs in my head so I could identify where the current behavior was going wrong.
+
+Then I used AI as a second reviewer to:
+- point out possible logic bugs
+- highlight edge cases I might miss
+- suggest cleaner or more efficient ways to write the same logic
+- help compare the original and improved versions
+
+Expected behavior (summary):
+The function should return the correct result for normal inputs, handle empty or invalid input safely, and avoid unnecessary processing.
+
+What I checked:
+- whether the core condition/logic was correct
+- whether null, undefined, or empty values were handled
+- whether any boundary case was skipped
+- whether the function was doing repeated work
+- whether the code could be made easier to read and maintain
+
+Practical example:
+Suppose the function was filtering active tasks for a user.
+
+Original issue:
+The function checked:
+if (!tasks || !userId) return [];
+
+Problem:
+This would also reject valid values like userId = 0 in systems where 0 can be a valid ID.
+Also, if tasks was not an array, the function could still fail later.
+
+Another issue:
+The function looped through all tasks multiple times when the same result could be achieved in one pass.
+
+How I improved it:
+- Replaced weak falsy checks with explicit validation
+- Ensured tasks is an array before processing
+- Simplified the condition so valid boundary values are not rejected
+- Reduced repeated work by using a single pass
+- Renamed variables to make intent clearer
+
+Concrete example of a fix:
+Instead of:
+- rejecting all falsy userId values
+I changed it to:
+- only reject userId when it is null or undefined
+
+This avoids incorrectly failing valid inputs like 0 or an empty-string case, depending on system rules.
+
+Another practical improvement:
+If the function first filtered tasks and then mapped them in separate steps, I checked whether that was acceptable for readability or whether it should be combined for efficiency. If the list was expected to be large, reducing extra passes made the function more efficient.
+
+How I verified the fix:
+I tested the logic mentally against practical cases such as:
+- normal input with multiple matching records
+- empty input array
+- null input
+- boundary input like userId = 0
+- no matching records
+
+For each case, I compared the old behavior with the improved behavior to make sure the fix solved the bug without changing the intended output.
+
+Why changes were made:
+The changes were made to improve correctness first, because a function that gives wrong results is a bigger issue than a function that is only slightly messy. After that, I improved readability and efficiency so the function would be easier to maintain and less error-prone in the future.
+
+Mandatory Question:
+How did AI help you see something you might have missed manually?
+
+AI helped me notice issues beyond the obvious bug. For example, I may have focused first on fixing the visible condition, but AI also highlighted that the function was using a broad falsy check, which could reject valid boundary values like 0. It also helped me notice repeated passes over the same data, which I might have ignored initially while concentrating only on correctness. That made the final improvement more complete, not just a quick patch.
+
+Conclusion:
+I used AI to speed up debugging and broaden the review, but I still validated every suggestion against the intended behavior of the function. My focus was not only to fix the bug, but also to make the code safer, clearer, and more reliable.

@@ -1,0 +1,116 @@
+PART 1: AI-First Thinking
+
+Scenario Context:
+Backend feature in an existing system with partial requirements, legacy code, and tight timelines.
+
+Q1. At what exact point would you involve AI first, and why?
+Ans:
+I involve AI after forming an initial understanding of the requirement and identifying the relevant parts of the codebase.
+
+Exact point:
+Once I can summarize the requirement in one sentence, list 2–3 impacted modules/services, and note 2–3 assumptions or gaps.
+
+Before using AI, I:
+- Read the requirement, even if it is incomplete
+- Scan related modules/services
+- Understand existing patterns and constraints
+- Note assumptions and gaps
+
+After this, I use AI to:
+- Validate my understanding
+- Surface clarifying questions I should ask
+- Explore alternative approaches
+- Identify edge cases or missing scenarios
+- Break down the implementation into smaller steps
+
+Why:
+AI works best when given context. At this stage, it acts as a second layer of thinking, helping me see perspectives I might miss while keeping me in control of decisions.
+
+--------------------------------------------------
+
+Q2. Which parts would you avoid giving to AI initially? Why?
+Ans:
+I avoid relying on AI initially for:
+- Business logic decisions
+- Legacy behavior assumptions
+- Security and permission logic
+- Database-impacting operations
+- System-specific workflows
+- Data privacy and secrets, such as production logs, customer data, and keys
+- DB migrations or schema changes without confirmed constraints
+
+Why:
+These areas depend heavily on real system context, and correctness is critical. AI may generate confident but incorrect assumptions if context is incomplete.
+
+--------------------------------------------------
+
+Q3. How do you validate AI-generated code or suggestions?
+Ans:
+I treat AI output as a draft, not a final solution, and validate it through:
+
+- Requirement alignment
+  Does it actually solve the problem?
+
+- Codebase consistency
+  Does it match the structure, naming, and patterns used in the project?
+
+- Dependency verification
+  Does every referenced service, function, or model actually exist?
+
+- Edge case handling
+  Does it cover null, failure, and boundary scenarios?
+
+- Impact analysis
+  Could it create side effects on existing features?
+
+- Testing
+  I validate it with real scenarios: happy path, edge cases, and failure cases
+
+- Static checks
+  I run lint, type checks, and ensure API contracts remain valid
+
+- Observability impact
+  I confirm logging, metrics, and tracing are not broken or noisy
+
+- Peer review for risky areas
+  Security-critical or data-impacting changes get an extra review
+
+I also prefer verifying AI output in smaller parts instead of accepting large code blocks directly.
+
+--------------------------------------------------
+
+Q4. What are early signs that AI output is incorrect or misleading?
+Ans:
+- References to non-existent functions, files, or APIs
+- Generic solutions not aligned with the codebase
+- Overconfident explanations without proper context
+- Ignoring existing system patterns or constraints
+- Missing error handling or validations
+- Oversimplified solutions that ignore real-world complexity
+- Assumes defaults or configs that are not present
+- Proposes new tables or services without a migration or rollout plan
+- Ignores performance concerns or rate limits
+
+If something looks too clean or too easy, I double-check it carefully.
+
+--------------------------------------------------
+
+Example 1:
+While implementing a notification API, AI may suggest sending notifications to all users.
+
+However, actual logic may require:
+- Filtering active users
+- Checking user preferences
+- Validating device tokens
+
+Without validation, this can lead to incorrect production behavior.
+
+Example 2:
+AI may suggest sending multiple notifications per event.
+But the actual system might require deduplication, rate limits, or idempotency keys.
+Ignoring this can cause spam and failures under load.
+
+--------------------------------------------------
+
+Conclusion:
+I use AI as a productivity accelerator and thinking partner, not as a source of truth. It helps me move faster, but final responsibility for correctness, system alignment, and production safety remains with me.
